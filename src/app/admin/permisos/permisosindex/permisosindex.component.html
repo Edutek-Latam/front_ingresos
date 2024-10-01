@@ -1,0 +1,62 @@
+<!-- <div class="px-2 md:px-5 bg-white">
+    <h2 class="text-2xl mb-10">Permisos</h2>
+    <table class="border bg-white">
+        <thead class="text-gray-700">
+            <th class="px-6 py-3">No.</th>
+            <th class="px-6 py-3">Permiso Nombre</th>
+            <th class="px-6 py-3">Descripcion</th>
+            <th class="px-6 py-3">Creado</th>
+        </thead>
+        @for(permiso of permisos; track permiso.id; let id=$index, e=$even){
+            <tr class="border-b">   
+                <td class="px6 py-2" >{{id + 1}}</td>
+                <td class="px6 py-2">{{permiso.name}}</td>
+                <td class="px6 py-2" >{{permiso.description}}</td>
+                <td class="px6 py-2">{{permiso.createAt | date:'dd/MM/yyyy' }}</td>
+            </tr>
+        }
+    </table>
+</div> -->
+<div class="px-2 mt-10" >
+    <h2 class="ml-10 text-3xl mb-5">Permisos</h2>
+    <div class="container flex flex-row align-middle justify-between  mx-auto">
+      
+       <!--  <a routerLink="/admin/permisos/nuevo" class="rounded-md  px-4 bg-[#487eb0] text-white text-4xl  hover:bg-[#40739e]">+</a> -->
+       <input class="w-full ml-10"  type="text">
+       <button  (click)="nuevo()" class=" rounded-md  px-4 bg-[#487eb0] text-white text-4xl  hover:bg-[#40739e]">
+        <i class="fa-solid fa-plus"></i></button> 
+    
+    </div>
+
+    
+    
+    <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
+   
+        <table class="w-full table-fixed">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Nombre</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Descripcion</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Fecha de creacion</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white">
+                @for (permiso of permisos; track permiso.id; let id=$index, e=$even) {
+                <tr>
+                    <td class="py-4 px-6 border-b border-gray-200">{{permiso.name}}</td>
+                    <td class="py-4 px-6 border-b border-gray-200 truncate">{{permiso.description}}</td>
+                    <td class="py-4 px-6 border-b border-gray-200">{{permiso.createAt | date:'dd/MM/yyyy' }}</td>
+                    <td class="py-4 px-6 border-b border-gray-200">
+                        <button class=" text-yellow-500 py-1 px-2 rounded-full text-lg"><i class="fa-regular fa-pen-to-square"></i></button>
+                        <button class=" text-red-600 py-1 px-2 rounded-full text-lg">
+                            <i class="fa-solid fa-trash"></i></button>
+
+                    </td>
+                </tr>
+            }
+                <!-- Add more rows here -->
+            </tbody>
+        </table>
+    </div>
+</div>

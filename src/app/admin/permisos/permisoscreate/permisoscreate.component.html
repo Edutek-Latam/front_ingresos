@@ -1,0 +1,36 @@
+<div class="w-full ">
+    <div class="pt-4 mx-5 md:mx-10 flex flex-row bg-white">
+        <div class="mx-auto basis-11/12   md:basis-1/2 lg:basis-1/3 bg-white shadow rounded-lg p-4">
+            <div class="mb-5">
+                <h1 class="text-2xl">Crear Permiso</h1>
+            </div>
+       <form  [formGroup]="frmPermiso" (ngSubmit)="nuevo()" >
+        <div class="my-3">
+            <label for="nombre"  class="labelfrm">
+                Nombre
+            </label>
+            <div class="relative mt-2 rounded-md shadow-md ">
+                <input id="nombre" formControlName="name"
+                type="text" class="inputfrm">
+            </div>
+        </div>
+        <div class="my-3">
+            <label for="descripcion" class="labelfrm">
+                Descripcion
+            </label>
+            <div class=" mt-2 rounded-md shadow-md ">
+                <input   
+                formControlName="description"
+                id="descripcion"  type="text" class="inputfrm"  >
+            </div>
+        </div>
+
+     
+        <div class="flex justify-end mt-10">
+            <button  
+        class="flex sm:inline-flex justify-center items-center bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus-visible:ring ring-blue-300 text-white font-semibold text-center rounded-md outline-none transition duration-100 px-5 py-2"  
+        type="submit"> Enviar </button>
+        </div>
+       </form>
+        </div>
+    </div>
