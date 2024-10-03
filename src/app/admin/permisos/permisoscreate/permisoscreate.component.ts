@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../../services/api.service';
 import { Permiso } from '../../../interfaces/permisos.interfaces';
 import { Router } from '@angular/router';
+import { Report } from 'notiflix/build/notiflix-report-aio';
 
 @Component({
   selector: 'app-permisoscreate',
@@ -31,8 +32,17 @@ export class PermisoscreateComponent {
         this._apiService.createPermiso(data)
         .subscribe({
           next:result=>{
-            this._router.navigate(['/admin/permisos/'])
-            this.isSubmited = false
+            if(result){
+              
+              setTimeout(() => {
+                Report.success('Permisos','Registro creado con éxito','Aceptar')
+                this.isSubmited = false
+                this._router.navigate(['/admin/permisos/'])
+                
+              }, 1500);
+             
+            }
+            
             //console.log(result)
 
           },

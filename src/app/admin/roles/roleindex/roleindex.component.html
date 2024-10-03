@@ -1,6 +1,4 @@
-
-<div class="px-2 mt-10" >
-    <h2 class="ml-10 text-3xl mb-5">Permisos</h2>
+<app-page title="Roles" >
     <div class="mx-4 md:mx-10 mb-5">
         <div class="flex flex-row align-middle space-x-4">
             <div class="relative w-full">
@@ -13,14 +11,12 @@
                 </div>
               </div>
  
-            <button  (click)="nuevo()" 
+            <button  (click)="nuevo()"
             class=" rounded-md  px-4 bg-[#487eb0] text-white text-2xl  hover:bg-[#40739e]">
              <i class="fa-solid fa-plus"></i></button>          
          </div>
     </div>
-
-    
-    
+        
     <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
    
         <table class="w-full table-fixed">
@@ -28,21 +24,28 @@
                 <tr class="bg-gray-100">
                     <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Nombre</th>
                     <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Descripcion</th>
-                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Fecha de creacion</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Estatus</th>
                     <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Acciones</th>
                 </tr>
             </thead>
             <tbody class="bg-white">
-                @for (permiso of permisos; track permiso.id; let id=$index, e=$even) {
+                @for (role of roles; track role.id; let id=$index, e=$even) {
                 <tr>
-                    <td class="py-4 px-6 border-b border-gray-200">{{permiso.name}}</td>
-                    <td class="py-4 px-6 border-b border-gray-200 truncate">{{permiso.description}}</td>
-                    <td class="py-4 px-6 border-b border-gray-200">{{permiso.createAt | date:'dd/MM/yyyy' }}</td>
+                    <td class="py-4 px-6 border-b border-gray-200">{{role.name}}</td>
+                    <td class="py-4 px-6 border-b border-gray-200 truncate">{{role.description}}</td>
                     <td class="py-4 px-6 border-b border-gray-200">
+                        @if ( role.isActive ) {
+                            <span class="bg-green-500 rounded-full px-3 py-1 font-bold  text-white" >Activo</span>
+                        }
+                    </td>
+                    <td class="py-4 px-6 border-b border-gray-200">
+                        <button class=" text-sky-500 py-1 px-2 rounded-full text-lg">
+                        <i class="fa-solid fa-eye"></i>
+                        </button>
                         <button class=" text-yellow-500 py-1 px-2 rounded-full text-lg">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </button>
-                        <button (click)="eliminar(permiso.id)" class=" text-red-600 py-1 px-2 rounded-full text-lg">
+                        <button  class=" text-red-600 py-1 px-2 rounded-full text-lg">
                             <i class="fa-solid fa-trash"></i>
                         </button>
 
@@ -57,4 +60,5 @@
             </tbody>
         </table>
     </div>
-</div>
+
+</app-page>

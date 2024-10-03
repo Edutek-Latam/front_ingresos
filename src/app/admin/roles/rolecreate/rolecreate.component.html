@@ -1,8 +1,8 @@
-<app-page title="Crear Permiso">
+<app-page title="Crear Role" >
     <div class="pt-4 mx-5 md:mx-10 flex flex-row bg-white">
         <div class="mx-auto basis-11/12   md:basis-1/2 lg:basis-1/3 bg-white rounded-lg p-4">
            
-       <form  [formGroup]="frmPermiso" (ngSubmit)="nuevo()" >
+       <form  [formGroup]="frmRole"  >
         <div class="my-3">
             <label for="nombre"  class="labelfrm">
                 Nombre
@@ -12,6 +12,7 @@
                 type="text" class="inputfrm">
             </div>
         </div>
+      
         <div class="my-3">
             <label for="descripcion" class="labelfrm">
                 Descripcion
@@ -22,8 +23,28 @@
                 id="descripcion"  type="text" class="inputfrm"  >
             </div>
         </div>
+        <div class="my-3 inline-flex justify-center items-center">
+            <label for="isActive" class="labelfrm">
+                Activo
+            </label>
+            <div class=" mt-2 rounded-md shadow-md ">
+                <input   
+                formControlName="isActive"
+                id="isActive"  type="checkbox" class=""  >
+            </div>
+        </div>
 
-     
+        <div class="my-3 ">
+            <label for="descripcion" class="labelfrm">
+                Permisos
+            </label>
+            <div class=" mt-2">
+                <input   
+                formControlName="permissions"
+                id="descripcion"  type="text" class="inputfrm"  >
+            </div>
+        </div>
+
         <div class="flex justify-end mt-10">
             <button  
         class="flex sm:inline-flex justify-center items-center bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus-visible:ring ring-blue-300 text-white font-semibold text-center rounded-md outline-none transition duration-100 px-5 py-2"  

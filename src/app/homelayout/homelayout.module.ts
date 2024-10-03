@@ -9,6 +9,9 @@ import { PermisosindexComponent } from '../admin/permisos/permisosindex/permisos
 import { PermisoscreateComponent } from '../admin/permisos/permisoscreate/permisoscreate.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PageComponent } from './component/page/page.component';
+import { RoleindexComponent } from '../admin/roles/roleindex/roleindex.component';
+import { RolecreateComponent } from '../admin/roles/rolecreate/rolecreate.component';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     SidebarComponent,
     PermisosindexComponent,
-    PermisoscreateComponent
+    PermisoscreateComponent,
+    PageComponent,
+    RoleindexComponent,
+    RolecreateComponent
   ],
   imports: [
     CommonModule,
