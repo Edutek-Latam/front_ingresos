@@ -2,7 +2,7 @@
     <div class="pt-4 mx-5 md:mx-10 flex flex-row bg-white">
         <div class="mx-auto basis-11/12   md:basis-1/2 lg:basis-1/3 bg-white rounded-lg p-4">
            
-       <form  [formGroup]="frmRole"  >
+       <form  [formGroup]="frmRole" (ngSubmit)="submit()"  >
         <div class="my-3">
             <label for="nombre"  class="labelfrm">
                 Nombre
@@ -23,7 +23,7 @@
                 id="descripcion"  type="text" class="inputfrm"  >
             </div>
         </div>
-        <div class="my-3 inline-flex justify-center items-center">
+       <!--  <div class="my-3 inline-flex justify-center items-center">
             <label for="isActive" class="labelfrm">
                 Activo
             </label>
@@ -32,16 +32,42 @@
                 formControlName="isActive"
                 id="isActive"  type="checkbox" class=""  >
             </div>
-        </div>
+        </div> -->
 
-        <div class="my-3 ">
-            <label for="descripcion" class="labelfrm">
-                Permisos
-            </label>
-            <div class=" mt-2">
-                <input   
-                formControlName="permissions"
-                id="descripcion"  type="text" class="inputfrm"  >
+        <div class="w-full" >
+            <div class="">
+                <div class="flex items-center justify-between">
+                    <p class="text-gray-800 font-bold focus:outline-none" >Permisos</p>
+                </div>
+            </div>
+            <div class="mt-2 overflow-x-auto">
+               
+                <table class="w-full  whitespace-nowrap">
+                    @for (permiso of permisos; track permiso.id) {
+                    <tr tabindex="0" class="focus: outline-none h-10 border border-gray-100 rounded">
+                        <td class="ml-5">
+                            <div class=" ml-1 bg-gray-200 rounded-sm w-5 h-5 flex flex-shring-0 justify-center items-center relative " >
+                                <input 
+                                [value]="permiso.id"
+                                (change)="onCheckBoxChange($event)"
+                                name="permissions"
+                                class=" cursor-pointer w-full h-full"
+                                type="checkbox">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flex items-center pl-5">
+                                    <p class="text-base font-medium text-gray-700 mr-2"  >{{permiso.name}}</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flex items-center pl-5">
+                                    <p class="text-base font-medium text-gray-700 mr-2"  >{{permiso.description}}</p>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                </table>
             </div>
         </div>
 

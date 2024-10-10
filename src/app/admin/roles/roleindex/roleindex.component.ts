@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { Router } from '@angular/router';
 import { Role } from '../../../interfaces/role.interfaces';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 @Component({
   selector: 'app-roleindex',
@@ -16,12 +17,13 @@ export class RoleindexComponent implements OnInit {
    ){}
 
   ngOnInit(): void {
+    Loading.dots()
       this._apiService.roles()
       .subscribe({
         next:resp=>{
           if(resp){
             this.roles = resp;
-            console.log(this.roles)
+            Loading.remove()
           }
           
         },

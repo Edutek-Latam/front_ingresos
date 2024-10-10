@@ -25,4 +25,12 @@ export class ApiService {
   roles():Observable<Role[]>{
     return this._http.get<Role[]>(`${this.URL_BASE}/access-control/role`)
   }
+
+  createRole(role:Role){
+    return this._http.post(`${this.URL_BASE}/access-control/role`,role)
+  }
+
+  users(){
+    return this._http.get(`${this.URL_BASE}/user`)
+  }
 }

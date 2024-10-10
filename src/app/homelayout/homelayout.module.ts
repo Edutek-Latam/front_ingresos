@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PageComponent } from './component/page/page.component';
 import { RoleindexComponent } from '../admin/roles/roleindex/roleindex.component';
 import { RolecreateComponent } from '../admin/roles/rolecreate/rolecreate.component';
+import { UserindexComponent } from '../admin/user/userindex/userindex.component';
+import { UsercreateComponent } from '../admin/user/usercreate/usercreate.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { RolecreateComponent } from '../admin/roles/rolecreate/rolecreate.compon
     PermisoscreateComponent,
     PageComponent,
     RoleindexComponent,
-    RolecreateComponent
+    RolecreateComponent,
+    UserindexComponent,
+    UsercreateComponent
   ],
   imports: [
     CommonModule,
