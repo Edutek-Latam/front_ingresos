@@ -1,0 +1,61 @@
+<div class="flex justify-center items-center h-screen ">
+    <div class="mx-auto  text-center bg-white px-4 sm:px-8 py-10 rounded-xl shadow">
+        <header class="mb-8">
+            <h1 class="text-2xl font-bold mb-1">Verificacion de token</h1>
+            <p class="text-[15px] text-slate-500">Ingrese el token</p>
+        </header>
+        <form [formGroup]="frmOtp" (ngSubmit)="submit()">
+            <div class="flex items-center justify-center gap-3">
+                <input 
+                    #input1
+                    formControlName="digit1" 
+                    maxlength="1"
+                    (input)="onInputChange($event, input2)"
+                    (keydown)="onKeyDown($event, null)" type="text"
+
+                    class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                    pattern="\d*" maxlength="1" />
+                <input #input2 formControlName="digit2" 
+                    (input)="onInputChange($event, input3)"
+                    (keydown)="onKeyDown($event, input1)" 
+                    type="text"
+                    class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                    maxlength="1" />
+                <input #input3 formControlName="digit3" 
+                    (input)="onInputChange($event, input4)"
+                    (keydown)="onKeyDown($event, input2)"
+                    type="text"
+                    class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                    maxlength="1" />
+                <input #input4 formControlName="digit4" 
+                    (input)="onInputChange($event, input5)"
+                    (keydown)="onKeyDown($event, input3)"
+                    type="text"
+                    class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                    maxlength="1" />
+                <input 
+                    #input5 
+                    formControlName="digit5" 
+                    maxlength="1"
+                    (input)="onInputChange($event, input6)"
+                    (keydown)="onKeyDown($event, input4)"
+                    type="text"
+                    class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                    maxlength="1" />
+                <input #input6 formControlName="digit6" 
+                    (input)="onInputChange($event, null)"
+                    (keydown)="onKeyDown($event, input5)"
+                    type="text"
+                    class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                    maxlength="1" />
+            </div>
+            <div class="max-w-[260px] mx-auto mt-4">
+                <button type="submit"
+                    class="w-full inline-flex justify-center whitespace-nowrap rounded-lg bg-indigo-500 px-3.5 py-2.5 text-sm font-medium text-white shadow-sm shadow-indigo-950/10 hover:bg-indigo-600 focus:outline-none focus:ring focus:ring-indigo-300 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 transition-colors duration-150">Verify
+                    Account</button>
+            </div>
+        </form>
+    </div>
+
+
+</div>
